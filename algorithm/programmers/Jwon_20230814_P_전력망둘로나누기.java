@@ -69,8 +69,14 @@ public class Jwon_20230814_P_전력망둘로나누기 {
 		
 		boolean[] chk = new boolean[arr.length];
 		Queue<Integer> que = new LinkedList<>();
-		
-		que.offer(1);
+		int start  = 1;
+		for(int i = 0; i < arr.length ; i++) {
+			if(arr[i].size() > 0) {
+				start = i;
+				break;
+			}
+		}
+		que.offer(start);
 		
 		while(!que.isEmpty()) {
 			int tempStart = que.poll();
@@ -116,6 +122,13 @@ public class Jwon_20230814_P_전력망둘로나누기 {
 		n = 9 ;
 		int[][] arr3 = 	{{1, 2}, {2, 3}, {1, 4}, {1, 5}, {1, 6}, {1, 7}, {1, 8}, {1, 9}};
 		System.out.println(solution(n,arr3));
+		
+		System.out.println("--------------------------------------");
+		System.out.println("--------------------------------------");
+		System.out.println("--------------------------------------");
+		n = 4; 
+		int[][] arr4 = {{1,2},{4,2},{2,3}};
+		System.out.println(solution(n,arr4));
 		
 	}
 }
