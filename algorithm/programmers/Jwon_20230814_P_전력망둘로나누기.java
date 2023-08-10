@@ -70,6 +70,7 @@ public class Jwon_20230814_P_전력망둘로나누기 {
 		boolean[] chk = new boolean[arr.length];
 		Queue<Integer> que = new LinkedList<>();
 		int start  = 1;
+		// 스타트 인덱스 찾기
 		for(int i = 0; i < arr.length ; i++) {
 			if(arr[i].size() > 0) {
 				start = i;
@@ -77,7 +78,7 @@ public class Jwon_20230814_P_전력망둘로나누기 {
 			}
 		}
 		que.offer(start);
-		
+		// 각 인덱스마다 연결된 노드 계속 찾아서 방문 체크.
 		while(!que.isEmpty()) {
 			int tempStart = que.poll();
 			chk[tempStart] = true;
@@ -126,8 +127,8 @@ public class Jwon_20230814_P_전력망둘로나누기 {
 		System.out.println("--------------------------------------");
 		System.out.println("--------------------------------------");
 		System.out.println("--------------------------------------");
-		n = 4; 
-		int[][] arr4 = {{1,2},{4,2},{2,3}};
+		n = 5; 
+		int[][] arr4 = {{1,2},{1,3},{1,4},{3,5}};
 		System.out.println(solution(n,arr4));
 		
 	}
