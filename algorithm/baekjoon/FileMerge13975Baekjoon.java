@@ -1,4 +1,4 @@
-package algorithm.baekjoon;
+package Algorithm.algorithm.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,8 +18,8 @@ public class FileMerge13975Baekjoon {
 		StringBuilder sb = new StringBuilder();
 		for(int testCase = 0 ; testCase < test ; testCase++) {
 			int n = Integer.parseInt(br.readLine());
-			// ¿ì¼± Á¦ÀÏ ÀÛÀº ¼ýÀÚµéÀÌ Á¦ÀÏ ¸¹ÀÌ ´õÇØÁö¸é µÈ´Ù´Â »ý°¢À¸·Î Á¢±ÙÀ» ÇÏ¿´´Ù.
-			// Á¦ÀÏ ÀÛÀº ¼ýÀÚµéÀ» ¾ò±â À§ÇØ¼­ Á¦ÀÏ »¡¸® ÀÛÀº ¼ö¸¦ Ã£À» ¼ö ÀÖ´Â ¿ì¼±¼øÀ§ Å¥¸¦ ÀÌ¿ëÇÏÀÚ.
+			// ï¿½ì¼± ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½.
 			PriorityQueue<Long> pQue= new PriorityQueue<>();
 
 			st = new StringTokenizer(br.readLine());
@@ -29,7 +29,7 @@ public class FileMerge13975Baekjoon {
 			
 			long sum = 0;
 			
-			// ¿ì¼±¼øÀ§ Å¥¿¡ ¸¶Áö¸· °ªÀÌ ³ª¿Ã ¶§±îÁö ¸Å ¼ø°£ Á¦ÀÏ ÀÛÀº ¼ýÀÚ µÑÀ» ´õÇØÁØ´Ù.
+			// ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 			while(pQue.size() != 1) {
 				long temp = pQue.poll();
 				temp += pQue.poll();

@@ -1,4 +1,4 @@
-package sasfy_algirithm_part.d4;
+package Algorithm.sasfy_algirithm_part.d4;
 
 import java.io.BufferedReader;
 import java.io.IOException;

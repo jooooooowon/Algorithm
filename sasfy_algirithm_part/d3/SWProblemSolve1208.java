@@ -1,4 +1,4 @@
-package sasfy_algirithm_part.d3;
+package Algorithm.sasfy_algirithm_part.d3;
 
 import java.util.Scanner;
 

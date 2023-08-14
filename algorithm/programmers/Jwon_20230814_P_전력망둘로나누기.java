@@ -1,10 +1,10 @@
-package algorithm.programmers;
+package Algorithm.algorithm.programmers;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Jwon_20230814_P_Àü·Â¸ÁµÑ·Î³ª´©±â {
+public class Jwon_20230814_P_ì „ë ¥ë§ë‘˜ë¡œë‚˜ëˆ„ê¸° {
 	
 	
 	public static int solution(int n, int[][] wires) {
@@ -70,7 +70,7 @@ public class Jwon_20230814_P_Àü·Â¸ÁµÑ·Î³ª´©±â {
 		boolean[] chk = new boolean[arr.length];
 		Queue<Integer> que = new LinkedList<>();
 		int start  = 1;
-		// ½ºÅ¸Æ® ÀÎµ¦½º Ã£±â
+		// ï¿½ï¿½Å¸Æ® ï¿½Îµï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		for(int i = 0; i < arr.length ; i++) {
 			if(arr[i].size() > 0) {
 				start = i;
@@ -78,7 +78,7 @@ public class Jwon_20230814_P_Àü·Â¸ÁµÑ·Î³ª´©±â {
 			}
 		}
 		que.offer(start);
-		// °¢ ÀÎµ¦½º¸¶´Ù ¿¬°áµÈ ³ëµå °è¼Ó Ã£¾Æ¼­ ¹æ¹® Ã¼Å©.
+		// ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½æ¹® Ã¼Å©.
 		while(!que.isEmpty()) {
 			int tempStart = que.poll();
 			chk[tempStart] = true;
