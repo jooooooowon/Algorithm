@@ -9,7 +9,7 @@ public class Jwon_20230817_B_6198_옥상정원꾸미기 {
 		int n = sc.nextInt();
 		int[] arr = new int[n];
 		
-		// 거리를 인덱스의 차이로 구할 것이고 인덱스에 대한 건물의 높이를 구하기 위해 배열에 값 넣기.
+		// 거리를 인덱스의 차이로 구할 것이고 인덱스에 대한 건물의 높이를z 구하기 위해 배열에 값 넣기.
 		for(int i = 0 ; i < n ; i++) {
 			arr[i] = sc.nextInt();
 		}
