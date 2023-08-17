@@ -6,6 +6,7 @@ public class Jwon_20230825_B_11723_집합 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
+		// 비트마스크를 사용하였다.
 		int test = sc.nextInt();
 		int bitMask = 0;
 		StringBuilder sb = new StringBuilder();
