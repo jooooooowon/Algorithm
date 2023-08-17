@@ -17,7 +17,7 @@ public class Jwon_20230825_B_11723_집합 {
 			}else if(str.equals("empty")) {
 				bitMask = 0;
 				continue;
-			}
+			} 
 			int num = sc.nextInt();
 //			int subSet = (int)Math.pow(2, num) ;
 			int subSet = 1 << num;
