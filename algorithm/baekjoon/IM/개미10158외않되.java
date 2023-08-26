@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 개미10158 {
+public class 개미10158외않되 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,10 +16,9 @@ public class 개미10158 {
 		int x = Integer.parseInt(st.nextToken());
 		int y = Integer.parseInt(st.nextToken());
 		int t = Integer.parseInt(br.readLine());
-		
-		x += t % (w * 2);
-		y += t % (h * 2);
-		
+		t %= w*h;
+		x += t;
+		y += t;
 		x %= 2 * w;
 		y %= 2 * h;
 		if(x > w) {
