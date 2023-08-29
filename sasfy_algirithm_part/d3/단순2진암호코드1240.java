@@ -23,6 +23,7 @@ public class 단순2진암호코드1240 {
 		cryp[11] = 9;
 		
 		int test = Integer.parseInt(br.readLine());
+
 		StringTokenizer st ;
 		StringBuilder sb = new StringBuilder();
 		for(int testCase = 1; testCase <= test ; testCase++) {

@@ -19,6 +19,7 @@ public class 상호의배틀필드1873 {
 			int h = Integer.parseInt(st.nextToken());
 			int w = Integer.parseInt(st.nextToken());
 			char[][] arr = new char[h][w];
+			
 			int startY = 0;
 			int startX = 0;
 			int dir = 0;
