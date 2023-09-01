@@ -2,7 +2,7 @@ package Algorithm.algorithm.programmers;
 
 import java.util.ArrayList;
 
-public class Jwon_20230905_P_양과늑대 {
+public class Jwon_20230908_P_양과늑대 {
 	/*
 	 * 양을 만날 때마다 새롭게 갈 수 있는 (뚫을 수 있는 늑대) 노드들이 새로 생길 수 있음을 알 수 있다. 따라서 양을 만날 때마다 (늑대를
 	 * 만날 때는 새로 갈 수 있는 곳이 나타나지 않으므로 양을 만날 때만 고려해준다.) 새롭게 갈 수 있는 list를 만들어준다. (기존에 있던
