@@ -1,18 +1,16 @@
-package Algorithm.sasfy_algirithm_part.d4;
+package Algorithm.sasfy_algirithm_part.모의역량테스트;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class SWProblemSolve2112보호필름2 {
+public class SWProblemSolve2112보호필름 {
 	static int d;
 	static int w;
 	static int k;
 	static int minCount;
-	static int[][] arr;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,7 +22,7 @@ public class SWProblemSolve2112보호필름2 {
 			d = Integer.parseInt(st.nextToken());
 			w = Integer.parseInt(st.nextToken());
 			k = Integer.parseInt(st.nextToken());
-			arr = new int[d][w];
+			int[][] arr = new int[d][w];
 			for (int i = 0; i < d; i++) {
 				st = new StringTokenizer(br.readLine());
 				for (int j = 0; j < w; j++) {
@@ -32,67 +30,29 @@ public class SWProblemSolve2112보호필름2 {
 				}
 			}
 			minCount = d;
-			for (int bit = 0; bit < 1 << d; bit++) {
-				if (Integer.bitCount(bit) < minCount) {
-					if (make(bit, bit, new int[d])) {
-						minCount = Integer.bitCount(bit);
-					}
-				}
+			if(k == 1) {
+				minCount = 0;
+			}else {
+				combination(arr, 0, 0);
 			}
 			sb.append("#").append(testCase).append(" ").append(minCount).append("\n");
 		}
 		System.out.println(sb.toString());
 	}
 
-	private static boolean make(int bit, int tempBit, int[] tempArr) {
-		if (tempBit == 0) {
-			if (chk(tempArr, bit)) {
-				return true;
-			}
-			return false;
-		}
-		boolean tf = false;
-		int[] tempA = tempArr.clone();
-		int[] tempB = tempArr.clone();
-		for (int i = 0; i < d; i++) {
-			if ((tempBit & 1 << i) > 0) {
-				tempBit &= ~(1 << i);
-				tempB[i] = 1;
-				tf = make(bit, tempBit, tempA);
-				if (tf) {
-					return true;
-				}
-				tf = make(bit, tempBit, tempB);
-				if (tf) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private static boolean chk(int[] tempArr, int bit) {
-		int[][] temp = new int[d][w];
-		for (int i = 0; i < d; i++) {
-			temp[i] = arr[i].clone();
-		}
-		for (int i = 0; i < d; i++) {
-			if ((bit & 1 << i) > 0) {
-				Arrays.fill(temp[i], tempArr[i]);
-			}
-		}
+	private static boolean chk(int[][] arr) {
 		int[] chkList = new int[w];
 		Arrays.fill(chkList, 1);
 		boolean[] chkResult = new boolean[w];
 		for (int i = 1; i < d; i++) {
 			for (int j = 0; j < w; j++) {
-				if (temp[i - 1][j] == temp[i][j]) {
+				if (arr[i - 1][j] == arr[i][j]) {
 					chkList[j]++;
+					if (chkList[j] == k) {
+						chkResult[j] = true;
+					}
 				} else {
 					chkList[j] = 1;
-				}
-				if (chkList[j] >= k) {
-					chkResult[j] = true;
 				}
 			}
 		}
@@ -104,4 +64,37 @@ public class SWProblemSolve2112보호필름2 {
 		return true;
 	}
 
+	private static void combination(int[][] arr, int index, int count) {
+		if(count >= minCount) {
+			return ;
+		}
+		if (chk(arr)) {
+			minCount = Math.min(minCount, count);
+			return ;
+		}
+		if (index == d) {
+			return ;
+		}
+		int[][] temp = new int[d][w];
+		for(int i = 0 ; i < d ; i++) {
+			for(int j = 0 ; j < w ; j++) {
+				temp[i][j] = arr[i][j];
+			}
+		}
+		combination(temp, index + 1, count);
+		for(int i = 0 ; i < d ; i++) {
+			for(int j = 0 ; j < w ; j++) {
+				temp[i][j] = arr[i][j];
+			}
+		}
+		Arrays.fill(temp[index], 1);
+		combination(temp, index + 1, count + 1);
+		for(int i = 0 ; i < d ; i++) {
+			for(int j = 0 ; j < w ; j++) {
+				temp[i][j] = arr[i][j];
+			}
+		}
+		Arrays.fill(temp[index], 0);
+		combination(temp, index + 1, count + 1);
+	}
 }

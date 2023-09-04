@@ -1,4 +1,4 @@
-package Algorithm.sasfy_algirithm_part.d4;
+package Algorithm.sasfy_algirithm_part.모의역량테스트;
 
 import java.io.BufferedReader;
 import java.io.IOException;
