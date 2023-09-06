@@ -28,16 +28,26 @@ public class 같이눈사람만들래20366투포인터 {
 					if (min == 0) {
 						break find;
 					}
+					// 혹시 left가 증가하다가 i 혹은 j가 된다면 피해준다.
 					if (left == i || left == j) {
 						left++;
 					}
+					// 혹시 right가 감소하다가 i 혹은 j가 된다면 피해준다.
 					if (right == i || right == j) {
 						right--;
 					}
 					youngerSister = arr[left] + arr[right];
+
+					// 여기서 olderSister의 눈사람 크기는 잠시 고정되어있지만
+					// youngerSister의 눈사람 크기는 투포인터로 변경될 수 있음을 생각하자.
+					// 차이 값을 줄이는 것이기 때문에 
+					// olderSister의 눈사람 크기가 더 크다면 
+					// youngerSister의 눈사람 크기를 키워야하므로 left++
 					if(olderSister > youngerSister) {
 						left++;
 					}
+					// olderSister의 눈사람 크기가 더 작다면
+					// youngerSister의 눈사람 크기를 줄여야하므로 right--
 					if(olderSister < youngerSister) {
 						right--;
 					}
