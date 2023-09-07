@@ -14,7 +14,6 @@ public class 같이눈사람만들래20366조합 {
 		for (int i = 0; i < n; i++) {
 			arr[i] = sc.nextInt();
 		}
-		
 		// 만들 수 있는 눈사람의 모든 키를 담을 리스트
 		ArrayList<Snowman> list = new ArrayList<>();
 
