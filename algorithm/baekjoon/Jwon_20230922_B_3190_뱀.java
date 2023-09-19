@@ -9,7 +9,7 @@ public class Jwon_20230922_B_3190_뱀 {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int k = sc.nextInt();
-		boolean[][] apples = new boolean[n][n];
+		boolean[][] apples = new boolean[n + 1][n + 1];
 		for (int i = 0; i < k; i++) {
 			int x = sc.nextInt();
 			int y = sc.nextInt();
@@ -21,29 +21,21 @@ public class Jwon_20230922_B_3190_뱀 {
 		int[] dirX = { 1, 0, -1, 0 };
 		int[] dirY = { 0, 1, 0, -1 };
 		Deque<Node> deque = new ArrayDeque<>();
-		deque.addLast(new Node(0, 1, 0));
-		int time = 1;
+		deque.addLast(new Node(1, 1));
+		int time = 0;
+		int direction = 0;
 		for (int i = 0; i < l; i++) {
 			int length = sc.nextInt();
 			char dir = sc.next().charAt(0);
-			Node temp = deque.peekLast();
-			int tempDir = temp.direction;
-			tempDir += 4;
-			if (dir == 'L') {
-				tempDir -= 1;
-			} else {
-				tempDir += 1;
-			}
-			tempDir %= 4;
 			for (int j = 0; j < length; j++) {
 				System.out.println("snake's len : " + deque.size());
 				time++;
 				Node node = deque.peekLast();
 				System.out.println(node);
-				int tempX = dirX[tempDir] + node.x;
-				int tempY = dirY[tempDir] + node.y;
-				Node chkNode = new Node(tempY, tempX, tempDir);
-				if (tempX < 0 || tempX >= n || tempY < 0 || tempY >= n || deque.contains(chkNode)) {
+				int tempX = dirX[direction] + node.x;
+				int tempY = dirY[direction] + node.y;
+				Node chkNode = new Node(tempY, tempX);
+				if (tempX < 0 || tempX > n || tempY < 0 || tempY > n || deque.contains(chkNode)) {
 					System.out.println("chkNode : " + chkNode);
 					System.out.println(time);
 					return;
@@ -55,19 +47,24 @@ public class Jwon_20230922_B_3190_뱀 {
 				}
 				deque.addLast(chkNode);
 			}
+			if (dir == 'L') {
+				direction -= 1;
+			} else {
+				direction += 1;
+			}
+			direction += 4;
+			direction %= 4;
 		}
 	}
 
 	static class Node {
 		int y;
 		int x;
-		int direction;
 
-		public Node(int y, int x, int direction) {
+		public Node(int y, int x) {
 			super();
 			this.y = y;
 			this.x = x;
-			this.direction = direction;
 		}
 
 		@Override
@@ -83,7 +80,7 @@ public class Jwon_20230922_B_3190_뱀 {
 
 		@Override
 		public String toString() {
-			return "Node [y=" + y + ", x=" + x + ", direction=" + direction + "]";
+			return "Node [y=" + y + ", x=" + x + "]";
 		}
 
 	}
