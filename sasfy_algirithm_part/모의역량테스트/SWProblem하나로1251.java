@@ -41,7 +41,7 @@ public class SWProblem하나로1251 {
 			for (int i = 1; i <= n; i++) {
 				unionChk[i] = i;
 			}
-			
+
 			int count = 0;
 			double len = 0;
 			while (count != n - 1) {
@@ -81,7 +81,7 @@ public class SWProblem하나로1251 {
 		int x;
 	}
 
-	static class Edge implements Comparable<Edge>{
+	static class Edge implements Comparable<Edge> {
 		int fromIndex;
 		int toIndex;
 		double len;
