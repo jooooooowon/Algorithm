@@ -36,6 +36,7 @@ public class 탈주범검거1953 {
 
 			Queue<Node> queue = new LinkedList<>();
 			queue.offer(new Node(r, c, 1));
+			chk[r][c] = true;
 			// 상 하 좌 우
 			int[] dirC = { 0, 0, -1, 1 };
 			int[] dirR = { -1, 1, 0, 0 };
@@ -168,9 +169,6 @@ public class 탈주범검거1953 {
 					}
 					break;
 				}
-			}
-			if(tempCount != 1) {
-				tempCount--;
 			}
 			sb.append("#").append(testCase).append(" ").append(tempCount).append("\n");
 		}
