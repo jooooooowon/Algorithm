@@ -3,7 +3,7 @@ package Algorithm.algorithm.baekjoon;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class 친구네트워크4195 {
+public class Jwon_20230926_B_4195_친구네트워크 {
 	static HashMap<String, String> map;
 	static HashMap<String, Integer> countMap;
 
