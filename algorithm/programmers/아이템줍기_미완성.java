@@ -49,7 +49,7 @@ public class 아이템줍기_미완성 {
 		}
 		System.out.println(sb.toString());
 		answer = 200;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 2; i++) {
 			dfs(characterX, characterY, itemX, itemY, 0, i);
 		}
 		return answer;
@@ -64,19 +64,71 @@ public class 아이템줍기_미완성 {
 			answer = Math.min(count, answer);
 			return;
 		}
-		for (int i = 0; i < 4; i++) {
-			int index = direction + i;
-			index %= 4;
+		if (direction == 0) {
+			int index = 0;
 			int nextY = characterY + dirY[index];
 			int nextX = characterX + dirX[index];
-			int temp = 0;
-			if(index == 2 || index == 3) {
-				temp = 1;
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][0] == 1) {
+				map[nextY][nextX][0] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 0);
+				map[nextY][nextX][0] = 1;
 			}
-			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][temp] == 1) {
-				map[nextY][nextX][temp] = 2;
-				dfs(nextX, nextY, itemX, itemY, count + 1, index);
-				map[nextY][nextX][temp] = 1;
+			index = 1;
+			nextY = characterY + dirY[index];
+			nextX = characterX + dirX[index];
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][0] == 1) {
+				map[nextY][nextX][0] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 0);
+				map[nextY][nextX][0] = 1;
+			}
+			index = 2;
+			nextY = characterY + dirY[index];
+			nextX = characterX + dirX[index];
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][1] == 1) {
+				map[nextY][nextX][1] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 1);
+				map[nextY][nextX][1] = 1;
+			}
+			index = 3;
+			nextY = characterY + dirY[index];
+			nextX = characterX + dirX[index];
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][1] == 1) {
+				map[nextY][nextX][1] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 1);
+				map[nextY][nextX][1] = 1;
+			}
+		} else {
+			int index = 2;
+			int nextY = characterY + dirY[index];
+			int nextX = characterX + dirX[index];
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][1] == 1) {
+				map[nextY][nextX][1] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 1);
+				map[nextY][nextX][1] = 1;
+			}
+			index = 3;
+			nextY = characterY + dirY[index];
+			nextX = characterX + dirX[index];
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][1] == 1) {
+				map[nextY][nextX][1] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 1);
+				map[nextY][nextX][1] = 1;
+			}
+			index = 0;
+			nextY = characterY + dirY[index];
+			nextX = characterX + dirX[index];
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][0] == 1) {
+				map[nextY][nextX][0] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 0);
+				map[nextY][nextX][0] = 1;
+			}
+			index = 1;
+			nextY = characterY + dirY[index];
+			nextX = characterX + dirX[index];
+			if (nextY >= 0 && nextY < 51 && nextX >= 0 && nextY < 51 && map[nextY][nextX][0] == 1) {
+				map[nextY][nextX][0] = 2;
+				dfs(nextX, nextY, itemX, itemY, count + 1, 0);
+				map[nextY][nextX][0] = 1;
 			}
 		}
 	}
