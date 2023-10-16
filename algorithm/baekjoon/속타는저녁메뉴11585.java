@@ -3,6 +3,7 @@ package Algorithm.algorithm.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class 속타는저녁메뉴11585 {
@@ -36,7 +37,7 @@ public class 속타는저녁메뉴11585 {
 			preFix[i] = j;
 		}
 		int count = 0;
-		System.out.println(board);
+		j = 0;
 		for (int i = 1; i < board.length(); i++) {
 			while (j > 0 && want.charAt(j) != board.charAt(i)) {
 				j = preFix[j - 1];
@@ -50,8 +51,6 @@ public class 속타는저녁메뉴11585 {
 			}
 		}
 		
-		System.out.println("count : " + count);
-		System.out.println("n : " + n);
 		int a = count;
 		int b = n;
 		int max = 1;
