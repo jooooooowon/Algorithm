@@ -36,6 +36,7 @@ public class 속타는저녁메뉴11585 {
 			preFix[i] = j;
 		}
 		int count = 0;
+		System.out.println(board);
 		for (int i = 1; i < board.length(); i++) {
 			while (j > 0 && want.charAt(j) != board.charAt(i)) {
 				j = preFix[j - 1];
@@ -48,6 +49,9 @@ public class 속타는저녁메뉴11585 {
 				count++;
 			}
 		}
+		
+		System.out.println("count : " + count);
+		System.out.println("n : " + n);
 		int a = count;
 		int b = n;
 		int max = 1;
