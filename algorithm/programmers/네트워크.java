@@ -6,7 +6,6 @@ public class 네트워크 {
 
 	public int solution(int n, int[][] computers) {
 		int answer = 0;
-		int len = n;
 		ArrayList<Integer>[] list = new ArrayList[n];
 		for (int i = 0; i < n; i++) {
 			list[i] = new ArrayList<>();

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class 찾기_1786 {
+public class Jwon_20231018_B_1786_찾기 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		// t문자에서 p의 갯수와 위치를 구하는 문제.
