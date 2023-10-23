@@ -36,6 +36,7 @@ public class 아기상어_16236 {
 		int answer = 0;
 		while (!queue.isEmpty()) {
 			Shark now = queue.poll();
+			System.out.println(now.toString());
 			for (int i = 0; i < 4; i++) {
 				int nextY = now.y + dirY[i];
 				int nextX = now.x + dirX[i];
@@ -43,20 +44,22 @@ public class 아기상어_16236 {
 						&& now.size >= arr[nextY][nextX]) {
 					visited[nextY][nextX] = true;
 					if (arr[nextY][nextX] > 0 && arr[nextY][nextX] < now.size) {
-						System.out.println("y : " + nextY);
+						System.out.println("y  " + nextY);
 						System.out.println("x : " + nextX);
-						System.out.println("time : " + now.time + 1);
-						System.out.println(now.toString());
+						System.out.println("time : " + (now.time + 1));
+						arr[nextY][nextX] = 0;
 						answer = now.time + 1;
-						if(now.count + 1 == now.size) {
-							queue = new LinkedList<>();
-							visited = new boolean[n][n];
-							visited[nextY][nextX] = true;
+						visited = new boolean[n][n];
+						visited[nextY][nextX] = true;
+						queue = new LinkedList<>();
+						System.out.println("after empty : " + queue.toString());
+						if (now.count + 1 == now.size) {
 							queue.offer(new Shark(nextY, nextX, now.size + 1, 0, now.time + 1));
-						}else {
+						} else {
 							queue.offer(new Shark(nextY, nextX, now.size, now.count + 1, now.time + 1));
 						}
-					}else {
+						break;
+					} else {
 						queue.offer(new Shark(nextY, nextX, now.size, now.count, now.time + 1));
 					}
 				}
@@ -83,7 +86,7 @@ public class 아기상어_16236 {
 
 		@Override
 		public String toString() {
-			return "Shark [y=" + y + ", x=" + x + ", size=" + size + ", count=" + count + "]";
+			return "Shark [y=" + y + ", x=" + x + ", size=" + size + ", count=" + count + ", time=" + time + "]";
 		}
 
 	}
