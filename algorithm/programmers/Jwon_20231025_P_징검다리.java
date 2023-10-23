@@ -2,7 +2,7 @@ package Algorithm.algorithm.programmers;
 
 import java.util.*;
 
-public class 징검다리 {
+public class Jwon_20231025_P_징검다리 {
 
 	public int solution(int distance, int[] rocks, int n) {
 		int answer = distance;
