@@ -1,6 +1,5 @@
 package Algorithm.algorithm.baekjoon.A형;
 
-import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -106,6 +105,23 @@ public class 파이프_옮기기_1_17070 {
 			}
 		}
 		arr[end.y][end.x] = true;
+	}
+
+	static class Point {
+		int x;
+		int y;
+
+		public Point(int x, int y) {
+			super();
+			this.x = x;
+			this.y = y;
+		}
+
+		@Override
+		public String toString() {
+			return "Point [x=" + x + ", y=" + y + "]";
+		}
+
 	}
 
 	static class Pipe {

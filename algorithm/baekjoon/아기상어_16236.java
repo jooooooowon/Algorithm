@@ -3,8 +3,7 @@ package Algorithm.algorithm.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class 아기상어_16236 {
@@ -28,47 +27,53 @@ public class 아기상어_16236 {
 			}
 		}
 		boolean[][] visited = new boolean[n][n];
-		Queue<Shark> queue = new LinkedList<>();
-		queue.offer(new Shark(startY, startX, 2, 0, 0));
+		// 시간 -> 위 > 아래 -> 왼쪽 > 오른쪽 순으로 우선순위를 정한다.
+		PriorityQueue<Shark> pQueue = new PriorityQueue<>();
+		// 시작점 넣어준다.
+		// 매개변수 : y, x, 상어의 크기, 크기가 변한 후 먹은 물고기 수, 시간
+		pQueue.offer(new Shark(startY, startX, 2, 0, 0));
 		visited[startY][startX] = true;
 		int[] dirY = { -1, 0, 0, 1 };
 		int[] dirX = { 0, -1, 1, 0 };
 		int answer = 0;
-		while (!queue.isEmpty()) {
-			Shark now = queue.poll();
-			System.out.println(now.toString());
+		while (!pQueue.isEmpty()) {
+			Shark now = pQueue.poll();
+			// 만약 현재 있는 곳이 먹을 수 있는 고기가 있다면
+			if (arr[now.y][now.x] > 0 && arr[now.y][now.x] < now.size) {
+				// 현재가 정답이 될 수 있으니 정답 갱신해준다.
+				answer = now.time;
+				// 왔던 길 모두 다시 갈 수 있으니 방문배열 다시 만들기
+				visited = new boolean[n][n];
+				// 물고기를 먹었으니 다시 물고기 먹기 (물고기를 먹은 시점부터 다시 확인한다.)
+				pQueue = new PriorityQueue<>();
+				// 현재 위치는 현재 방문한 상태이니 true
+				visited[now.y][now.x] = true;
+				// 물고기 잡솼으니 잡은 물고기 수 + 1
+				now.count++;
+				
+				// 만약 물고기의 수가 현재 몸집의 크기와 같다면
+				if(now.size == now.count) {
+					// 물고기 몸집 키워주고, 먹은 물고기는 몸집이 커졌으니 다시 0
+					now.size++;
+					now.count = 0;
+				}
+				// 먹어서 없애기
+				arr[now.y][now.x] = 0;
+			}
 			for (int i = 0; i < 4; i++) {
 				int nextY = now.y + dirY[i];
 				int nextX = now.x + dirX[i];
 				if (nextY >= 0 && nextY < n && nextX >= 0 && nextX < n && !visited[nextY][nextX]
 						&& now.size >= arr[nextY][nextX]) {
 					visited[nextY][nextX] = true;
-					if (arr[nextY][nextX] > 0 && arr[nextY][nextX] < now.size) {
-						System.out.println("y  " + nextY);
-						System.out.println("x : " + nextX);
-						System.out.println("time : " + (now.time + 1));
-						arr[nextY][nextX] = 0;
-						answer = now.time + 1;
-						visited = new boolean[n][n];
-						visited[nextY][nextX] = true;
-						queue = new LinkedList<>();
-						System.out.println("after empty : " + queue.toString());
-						if (now.count + 1 == now.size) {
-							queue.offer(new Shark(nextY, nextX, now.size + 1, 0, now.time + 1));
-						} else {
-							queue.offer(new Shark(nextY, nextX, now.size, now.count + 1, now.time + 1));
-						}
-						break;
-					} else {
-						queue.offer(new Shark(nextY, nextX, now.size, now.count, now.time + 1));
-					}
+					pQueue.offer(new Shark(nextY, nextX, now.size, now.count, now.time + 1));
 				}
 			}
 		}
 		System.out.println(answer);
 	}
 
-	static class Shark {
+	static class Shark implements Comparable<Shark> {
 		int y;
 		int x;
 		int size;
@@ -89,5 +94,16 @@ public class 아기상어_16236 {
 			return "Shark [y=" + y + ", x=" + x + ", size=" + size + ", count=" + count + ", time=" + time + "]";
 		}
 
+		@Override
+		public int compareTo(Shark shark) {
+			if (this.time == shark.time) {
+				if (this.y == shark.y) {
+					return this.x - shark.x;
+				}
+				return this.y - shark.y;
+			}
+
+			return this.time - shark.time;
+		}
 	}
 }

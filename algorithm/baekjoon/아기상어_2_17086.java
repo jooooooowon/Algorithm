@@ -1,6 +1,5 @@
 package Algorithm.algorithm.baekjoon;
 
-import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -62,4 +61,15 @@ public class 아기상어_2_17086 {
 		return 0;
 	}
 
+	static class Point {
+		int x;
+		int y;
+
+		public Point(int x, int y) {
+			super();
+			this.x = x;
+			this.y = y;
+		}
+
+	}
 }
