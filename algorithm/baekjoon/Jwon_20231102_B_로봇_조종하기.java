@@ -8,9 +8,9 @@ import java.util.StringTokenizer;
 public class Jwon_20231102_B_로봇_조종하기 {
 	static int[][] result;
 	static int[][] arr;
-	static boolean[][] visited;
 	static int n;
 	static int m;
+	static final int MIN = -(100*1000*1000);
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,10 +23,9 @@ public class Jwon_20231102_B_로봇_조종하기 {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < m; j++) {
 				arr[i][j] = Integer.parseInt(st.nextToken());
+				result[i][j] = MIN;
 			}
 		}
-		visited = new boolean[n][m];
-		visited[0][0] = true;
 		result[0][0] = arr[0][0];
 
 		dfs(n - 1, m - 1);
@@ -37,15 +36,14 @@ public class Jwon_20231102_B_로봇_조종하기 {
 			System.out.println();
 
 		}
-		System.out.println(result[0][0]);
+		System.out.println(result[n - 1][m - 1]);
 	}
 
 	private static int dfs(int y, int x) {
-		if (visited[y][x]) {
+		if (result[y][x] > MIN) {
 			return result[y][x];
 		}
-		visited[y][x] = true;
-		int temp = -(100 * 1000 * 1000);
+		int temp = MIN;
 		for (int i = 0; i < 3; i++) {
 			int nextY = y + dirY[i];
 			int nextX = x + dirX[i];
