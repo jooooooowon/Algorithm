@@ -2,7 +2,7 @@ package Algorithm.algorithm.baekjoon;
 
 import java.util.Scanner;
 
-public class Jwon_202380804_B_NQueen {
+public class Jwon_20230804_B_NQueen {
 	
 	static int count = 0;
 	static int n;
