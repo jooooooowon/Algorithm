@@ -1,35 +1,30 @@
 package Algorithm.algorithm.programmers;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class Jwon_20231027_P_단속카메라 {
-	public static int solution(int[][] routes) {
+	public int solution(int[][] routes) {
 		int answer = 0;
+		// 회의실 배정 문제를 생각하며 풀었다.
 		Arrays.sort(routes, new Comparator<int[]>() {
-
 			@Override
 			public int compare(int[] o1, int[] o2) {
-				if (o1[0] == o2[0]) {
-					return o1[1] - o2[1];
-				}
-				return o1[0] - o2[0];
+				return o1[1] - o2[1];
 			}
 		});
-		
-		
-		for (int i = 0; i < routes.length; i++) {
-			for (int j = 0; j < 2; j++) {
-				System.out.print(routes[i][j] + " ");
+		// 끝을 기준으로 오름차순 정렬을 하고, 끝에만 카메라를 달아준다.
+		answer = 1;
+		int camera = routes[0][1];
+		for (int i = 1; i < routes.length; i++) {
+			// 만약 마지막으로 단 카메라가 다음 자동차도 확인할 수 있다면
+			// 패스
+			if (routes[i][0] <= camera && routes[i][1] >= camera) {
+				continue;
 			}
-			System.out.println();
+			// 그렇지 않다면 카메라를 설치하고, 카메라 수 늘리기.
+			camera = routes[i][1];
+			answer++;
 		}
 		return answer;
 	}
-
-	public static void main(String[] args) {
-		int[][] routes = { { -20, -15 }, { -14, -5 }, { -18, -13 }, { -5, -3 } };
-		solution(routes);
-	}
-	
 }
