@@ -3,7 +3,7 @@ package Algorithm.algorithm.softeer;
 import java.io.*;
 import java.util.*;
 
-public class 수퍼바이러스_LV3 {
+public class Jwon_20231110_S_수퍼바이러스_LV3 {
 
 	static long p;
 	static final long DIV = 1000000007;
