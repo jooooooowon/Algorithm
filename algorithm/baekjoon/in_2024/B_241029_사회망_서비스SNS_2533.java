@@ -3,11 +3,10 @@ package Algorithm.algorithm.baekjoon.in_2024;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class B_241029_사회망_서비스SNS {
+public class B_241029_사회망_서비스SNS_2533 {
   static int[][] dp;
   static boolean[] visited;
   static List<Integer>[] arr;
