@@ -1,7 +1,7 @@
 package Algorithm.algorithm.programmers.in_2024;
 import java.util.*;
 
-public class P_241117_신입사원_교육 {
+public class P_241117_모의고사2_신입사원_교육 {
   public int solution(int[] ability, int number) {
     int answer = 0;
     PriorityQueue<Integer> pque = new PriorityQueue<>();

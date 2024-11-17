@@ -1,6 +1,6 @@
 package Algorithm.algorithm.programmers.in_2024;
 
-public class P_241117_카페_확장 {
+public class P_241117_모의고사2_카페_확장 {
   public int solution(int[] menu, int[] order, int k) {
     int answer = 0;
     int time = 0;

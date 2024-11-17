@@ -1,6 +1,6 @@
 package Algorithm.algorithm.programmers.in_2024;
 
-public class P_241117_실습용_로봇 {
+public class P_241117_모의고사2_실습용_로봇 {
   public int[] solution(String command) {
     int[] answer = new int[2];
     int y = 0;
